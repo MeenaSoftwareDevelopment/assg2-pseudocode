@@ -1,0 +1,61 @@
+/*
+Pseudocode for Assignment 2
+
+Authored by Arsalan Kazmi, mostly
+
+Licensed under... nothing, actually. It's pseudocode.
+Anyone who has access to this file can use it as they see fit, if they want.
+*/
+
+fn get_row_col_user_input(min, max, rows_or_cols) {
+    let input_message = "How many {rows_or_cols}? (minimum {min}, maximum {max})"
+
+    loop {
+        println(input_message)
+        user_input = get_input(prompt: "> ")
+
+        if user_input not in range(min, max) {
+            println("Sorry, the number must be between {min} and {max}. Try again.")
+            restart
+        }
+
+        break
+    }
+
+    return user_input
+}
+
+fn ask_for_grid_size() {
+    let MIN_ROWS = 8
+    let MAX_ROWS = 18
+    let MIN_COLS = 6
+    let MAX_COLS = 14
+
+    let rows = get_row_col_user_input(MIN_ROWS, MAX_ROWS, "rows")
+    let cols = get_row_col_user_input(MIN_COLS, MAX_COLS, "columns")
+
+    return rows, cols
+}
+
+fn generate_grid(rows, cols) {
+    let grid = new array(rows, cols)
+
+    for row in range(0, rows) {
+        for col in range(0, cols) {
+            grid[row, col] = "."
+        }
+    }
+
+    return grid
+}
+
+fn main() {
+    grid_size = ask_for_grid_size()
+    println("Selected grid size: {grid_size}")
+
+    let grid = generate_grid(rows: grid_size[0], cols: grid_size[1])
+    println(grid)
+
+    // Now somehow we figure out a way to make those grid elements (the dots) update with O and X for red and yellow in the Connect 4 game.
+    // Good luck with that.
+}
