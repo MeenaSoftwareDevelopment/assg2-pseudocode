@@ -42,7 +42,7 @@ fn generate_grid(rows, cols) {
 
     for row in range(0, rows) {
         for col in range(0, cols) {
-            grid[row, col] = "."
+            grid[row, col] = "[ ]"
         }
     }
 
